@@ -8,8 +8,8 @@ services:
     ports:
       - target: 8000
         published: 8003
-#    env_file:
-#      - CONFIG.env
+    volumes:
+      - ${PWD}/CONFIG.yml:/CONFIG.yml
     healthcheck:
       test: python3 healthcheck.py
       interval: 30s

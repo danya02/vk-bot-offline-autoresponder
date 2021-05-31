@@ -1,0 +1,12 @@
+---
+# Configuration for the auto-responder bot
+communities:    # list of communities to respond to requests from
+- group_id: 1   # the community's ID
+  confirmation: e3947cc3  # when adding an endpoint, the VK server sends a request of "type": "confirmation" and expects this string in return
+  access_key: badbe5072ff9b0e2b2c716007a03f66b27ee852dbbd34543b762694920150afd4ddbd3d7e14dc47c78cbc  # an access key that allows sending messages on behalf of the community.
+  secret_key:  # when the VK server sends requests, it will attach this string and we'll check if it matches. It will not be checked if left empty.
+  private_context_triggers: [] # send response if message in private context contains any of these regexes; if empty list, respond to all
+  public_context_triggers: ["@community", "[id1|.*]"] # send response if message in group chat context contains any of these regexes; if empty list, respond to none
+  text: |-
+   This bot is currently offline. For more information, please contact [id1|the bot's owner].
+

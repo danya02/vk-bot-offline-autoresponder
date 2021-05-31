@@ -1,10 +1,20 @@
 from flask import Flask, request
 import hashlib
+import yaml
+from api_manager import APIManager
 app = Flask(__name__)
+apis = APIManager()
 
-@app.route("/")
+def get_config():
+    with open('/CONFIG.yml') as f:
+        data = yaml.load(f, Loader=yaml.SafeLoader)
+    return data
+
+@app.route("/", methods=['POST'])
 def hello():
-    return "Hello World!"
+    config = get_config()
+    print(config)
+    return 'HelloWorld'
 
 @app.route('/health', methods=['GET', 'POST'])
 def healthcheck():
