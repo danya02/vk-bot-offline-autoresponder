@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     ports:
       - target: 8000
-        published: 8003
+        published: 9157
     volumes:
       - ${PWD}/CONFIG.yml:/CONFIG.yml
     healthcheck:
